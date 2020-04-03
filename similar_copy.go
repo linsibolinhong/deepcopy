@@ -32,7 +32,7 @@ func similarCopyResource(dst, src reflect.Value) {
 		if src.IsNil() {
 			return
 		}
-		dst.Set(reflect.New(dst.Elem().Type()))
+		dst.Set(reflect.New(dst.Type().Elem()))
 		similarCopyResource(dst.Elem(), src.Elem())
 	case reflect.Slice:
 		if src.IsNil() {
